@@ -7,7 +7,7 @@
         "type": "text",
         "validators": {
           "required": true,
-          "minLength": 10
+          "minLength": 3
         }
       },
       {
@@ -15,7 +15,9 @@
         "label": "Last name",
         "value": "",
         "type": "text",
-        "validators": {}
+        "validators": {
+          "required": true
+        }
       },
       {
         "name": "comments",

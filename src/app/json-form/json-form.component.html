@@ -1,1 +1,60 @@
-<p>json-form works!</p>
+<form 
+ class="container-md col-4 needs-validation"
+ [formGroup]="myForm" 
+ (ngSubmit)="onSubmit()"
+ novalidate>
+    <ng-container 
+    *ngFor="let control of jsonFormData?.controls">
+    
+    <div class="mb-3">
+        <label class="form-label">{{control.label}}</label>
+        <div class="input-group mb-4">
+
+            <input 
+            *ngIf="control.type=='text'"
+            class="form-control has-validation"
+            [type]="control.type"
+            [formControlName]="control.name"
+            [value]="control.value"/>
+
+            <textarea 
+            *ngIf="control.type=='textarea'"
+            class="form-control has-validation"
+            [formControlName]="control.name"
+            [value]="control.value"></textarea>
+
+            <input 
+            *ngIf="control.type=='checkbox'"
+            class="form-check-input" 
+            type="checkbox" 
+            [value]="control.value"
+            id="flexCheckChecked" checked>
+                        
+            <div 
+            *ngIf="control.type=='toggle'"
+            class="form-check form-switch">
+                <input
+                 class="form-check-input" 
+                 type="checkbox"
+                 role="switch"
+                 [formControlName]="control.name"
+                 [value]="control.value"
+                 id="flexSwitchCheckDefault checked">
+            </div>
+
+            <input 
+            *ngIf="control.type=='range'"
+            class="form-range"
+            [type]="control.type"
+            [formControlName]="control.name"
+            [value]="control.value"/>
+        </div>
+
+    </div>
+    </ng-container>
+
+
+    <button 
+     type="submit"
+     class="btn btn-primary mx-auto"> Envoyer </button>
+</form>

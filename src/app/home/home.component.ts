@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JsonFormData } from '../model/JsonFormDate';
+import { JsonFormData } from '../model/JsonFormData';
 import { HttpClient} from '@angular/common/http'
 
 @Component({
